@@ -200,7 +200,7 @@ Submit results with estimates for all targets in the testing dataset and the con
 - A single integer that represents the number of errors in the configurations
 
 or
-- Number of errors in the estimates, Score (mean squared score with the success approaching 0), precision (standard deviations for Rabi, Detuning and Time of Flight), accuracy (means for Rabi, Detuning and Time of Flight), . If the submission is misconfigured the issues will be printed and score() will return None.
+- Number of errors in the estimates (hopefully 0), Score (mean squared score with the success approaching 0), precision (standard deviations for Rabi, Detuning and Time of Flight), accuracy (means for Rabi, Detuning and Time of Flight), the scores for all 1000 targets, actual precision (actual standard deviations for Rabi, Detuning and Time of Flight), and actual accuracy (actual mean for Rabi, Detuning, and Time of Flight).
 
 #### **Example**:
 ```python
@@ -218,4 +218,4 @@ test_radar = qe_radar_connector.TestSimulator()
 
 print(test_radar.score(configs, estimates))
 
->>> [0, 45, [1.2, 4.2, 0.2], [0.5, 2.1, 1.1], [10, 43, 9, 23, 11...], [1.2, 4.2, 0.2], [0.5, 2.1, 1.1]] # [ Error Count, Score, [Precision (STD) (Rabi, Detuning, Time of Flight)], [Accuracy (Mean) (Rabi, Detuning, Time of Flight)], List of Target Scores,  ]
+>>> [0, 45, [1.2, 4.2, 0.2], [0.5, 2.1, 1.1], [10, 43, 9, 23, 11...], [1.2, 4.2, 0.2], [0.5, 2.1, 1.1]] # [ Error Count, Score, [Precision (STD) (Rabi, Detuning, Time of Flight)], [Accuracy (Mean) (Rabi, Detuning, Time of Flight)], [List of 1000 Scores], [Actual Precision (STD) (Rabi, Detuning, Time of Flight)], [Actual Accuracy (Mean) (Rabi, Detuning, Time of Flight)]  ]

@@ -115,7 +115,9 @@ print(qe_radar_toolkit.test_config(configs))
 
 ### `test_score(estimates)`
 
-Submit results with estimates for all targets in the testing dataset with intention for them to be scored. The returned results will be Score (mean squared score with the success approaching 0), precision (standard deviations for Rabi, Detuning and Time of Flight) and accuracy (means for Rabi, Detuning and Time of Flight).
+Submit results with estimates for all targets in the testing dataset with intention for them to be scored. The returned results will be:
+
+Number of errors in the estimates (hopefully 0), Score (mean squared score with the success approaching 0), precision (standard deviations for Rabi, Detuning and Time of Flight), accuracy (means for Rabi, Detuning and Time of Flight), the scores for all 1000 targets, actual precision (actual standard deviations for Rabi, Detuning and Time of Flight), and actual accuracy (actual mean for Rabi, Detuning, and Time of Flight).
 
 #### **Example**:
 ```python
@@ -127,4 +129,4 @@ estimates = [[0.00453748376016974, -0.02249823109292496, 153.73902434863788, 0],
 
 print(qe_radar_toolkit.test_score(estimates))
 
->>> [45, [1.2, 4.2, 0.2], [0.5, 2.1, 1.1]] # [ Score, [Precision (STD) (Rabi, Detuning, Time of Flight)], [Accuracy (Mean) (Rabi, Detuning, Time of Flight)] ]
+>>> [0, 45, [1.2, 4.2, 0.2], [0.5, 2.1, 1.1], [10, 43, 9, 23, 11...], [1.2, 4.2, 0.2], [0.5, 2.1, 1.1]] # [ Error Count, Score, [Precision (STD) (Rabi, Detuning, Time of Flight)], [Accuracy (Mean) (Rabi, Detuning, Time of Flight)], [List of 1000 Scores], [Actual Precision (STD) (Rabi, Detuning, Time of Flight)], [Actual Accuracy (Mean) (Rabi, Detuning, Time of Flight)]  ]
